@@ -10,7 +10,26 @@ const PasswordScreen = ({ onUnlock }) => {
 
   const correctPassword = '2612';
 
+  const playClickSound = () => {
+    const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+    const oscillator = audioCtx.createOscillator();
+    const gainNode = audioCtx.createGain();
+
+    oscillator.type = 'sine';
+    oscillator.frequency.setValueAtTime(800, audioCtx.currentTime); // Frequency in Hz
+    
+    gainNode.gain.setValueAtTime(0.1, audioCtx.currentTime); 
+    gainNode.gain.exponentialRampToValueAtTime(0.00001, audioCtx.currentTime + 0.1);
+
+    oscillator.connect(gainNode);
+    gainNode.connect(audioCtx.destination);
+
+    oscillator.start();
+    oscillator.stop(audioCtx.currentTime + 0.1);
+  };
+
   const handlePress = (num) => {
+    playClickSound();
     if (password.length < 4) {
       setPassword((prev) => prev + num);
       setError(false);
