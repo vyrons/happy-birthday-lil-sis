@@ -68,13 +68,13 @@ const LetterOverlay = ({ onComplete }) => {
     >
       <div 
         ref={contentRef}
-        className="bg-white max-w-md w-full p-8 md:p-10 rounded-2xl shadow-2xl relative border-4 border-pink-100"
+        className="bg-white max-w-md w-full p-6 md:p-10 rounded-2xl shadow-2xl relative border-4 border-pink-100"
       >
         <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-rose-100 p-3 rounded-full border-4 border-white">
             <Heart className="w-8 h-8 text-rose-500 fill-rose-500" />
         </div>
 
-        <div className="mt-6 space-y-4 font-hand text-xl md:text-xl text-gray-700 leading-relaxed text-center">
+        <div className="mt-6 space-y-4 font-hand text-lg md:text-xl text-gray-700 leading-relaxed text-center">
             <h1 className="text-3xl font-bold text-rose-600 mb-6">Buat Adik Kecilku,</h1>
             <p>
                 Happy Birthday ya! 🎉
